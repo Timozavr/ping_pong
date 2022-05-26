@@ -34,7 +34,6 @@ stop = turtle.Turtle()
 stop.color('yellow')
 stop.shape('square')
 stop.shapesize(stretch_len=10,stretch_wid=10)
-stop.hideturtle()
 
 rocket_a = turtle.Turtle()
 rocket_a.color('blue')
@@ -99,8 +98,8 @@ ball.up()
 ball.shape('circle')
 ball.speed(0)
 ball.color('yellow')
-ball.dx = 3
-ball.dy = 3
+ball.dx = 0
+ball.dy = 0
 
 window.listen()
 window.onkeypress(move_up,"w")
