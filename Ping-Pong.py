@@ -30,6 +30,12 @@ for i in range(25):
         border.down()
 border.hideturtle()
 
+stop = turtle.Turtle()
+stop.color('yellow')
+stop.shape('square')
+stop.shapesize(stretch_len=10,stretch_wid=10)
+stop.hideturtle()
+
 rocket_a = turtle.Turtle()
 rocket_a.color('blue')
 rocket_a.shape('square')
@@ -83,6 +89,11 @@ def move_down1():
         y = - 250
     rocket_b.sety(y)
 
+def start ():
+    stop.hideturtle()
+    ball.dx = 3
+    ball.dy = 3
+
 ball = turtle.Turtle()
 ball.up()
 ball.shape('circle')
@@ -96,6 +107,7 @@ window.onkeypress(move_up,"w")
 window.onkeypress(move_down,"s")
 window.onkeypress(move_up1,"Up")
 window.onkeypress(move_down1,"Down")
+window.onkeypress(start,"space")
 
 while True:
     window.update()
@@ -137,13 +149,30 @@ while True:
         and ball.xcor()<= rocket_a.xcor()+5:
         ball.dx = - ball.dx
 
-    if score_b == 10 or score_a ==10:
-        ball.goto(0,0)
+    if score_b == 10:
+        stop.color('red')
         score_b = 0
         s2.clear()
         s2.write(score_b,font=FONT)
         score_a = 0
         s1.clear()
         s1.write(score_a,font=FONT)
+        ball.goto(0,0)
+        stop.showturtle()
+        ball.dx = 0
+        ball.dy = 0
+
+    if score_a == 10:
+        stop.color('blue')
+        score_b = 0
+        s2.clear()
+        s2.write(score_b,font=FONT)
+        score_a = 0
+        s1.clear()
+        s1.write(score_a,font=FONT)
+        ball.goto(0,0)
+        stop.showturtle()
+        ball.dx = 0
+        ball.dy = 0
 
 window.mainloop()
